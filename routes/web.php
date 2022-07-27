@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CounterController;
 
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('products', ProductController::class);
+Route::resource('counters', CounterController::class);
+Route::get('refresh', ['as' => 'counters.refresh', 'uses' => 'App\Http\Controllers\CounterController@refresh']);
